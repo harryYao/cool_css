@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    :current(p, span) {
+      background-color: yellow;
+    }
+
+    :past(p, span),
+    :future(p, span) {
+      background-color: gray;
+    }
+  </style>
+</head>
+<body>
+  <!-- CSS4中出现的一些新型选择器
+  https://www.webhek.com/post/css-selectors-level-4.html -->
+
+  <!-- Time-dimensional Pseudo-classes——:current(), :past(), :future()
+我个人用 时间轴伪类 统一称呼 :current(), :past(), :future() 这三个伪类。
+:current() 匹配时间轴当前的元素，
+:past() 匹配 :current()元素之前的元素，
+:future() 则匹配当前时间轴后的所有元素。
+这里说的时间轴指的是例如 WebVTT。值得注意的是，规范中写道如果使用的时间轴并不是文档语言所规定的，
+那么 :past() 和 :future() 有可能分别匹配 :current() 元素的前面的兄弟元素和后面的兄弟元素。
+由于在 Chrome Canary 和 Safari TP 上都不支持这几个伪类，所以无法实验正确性。下面使用的例子是从这个网址摘过来的。 -->
+  <video controls preload="metadata">  
+    <source src="http://html5demos.com/assets/dizzy.mp4" type="video/mp4" />
+    <source src="http://html5demos.com/assets/dizzy.webm" type="video/webm" />
+    <source src="http://html5demos.com/assets/dizzy.ogv" type="video/ogv" />
+  
+    <track label="English" kind="subtitles" srclang="en" src="http://www.iandevlin.com/html5test/webvtt/upc-video-subtitles-en.vtt" default>
+  </video>  
+</body>
+</html>
