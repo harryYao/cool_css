@@ -5,8 +5,76 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TEST FORM CSS</title>
+  <style>
+    input {
+      width: 200px;
+      height: 24px;
+      line-height: 22px;
+    }
+    input:required{
+      border: 1px solid rgb(247, 184, 13);
+    }
+    input:focus {
+      border: 1px solid rgb(196, 16, 241);
+      outline: none;
+    }
+    /* valid: 输入合法的表单元素； */
+    input:valid {
+      /* border: 1px solid rgb(4, 131, 4); */
+      color: rgb(85, 68, 240);
+    }
+    /* invalid：输入非法的表单元素； */
+    input:invalid {
+      color: rgb(138, 5, 5);
+      border: 1px solid rgb(255, 0, 0);
+    }
+    input:out-of-range {
+      background-color: rgb(243, 179, 179);
+    }
+    input[type=checkbox] {
+      height: 24px;
+      width: 24px;
+      border: 1px solid rgb(87, 0, 58);
+      cursor: pointer;
+      position: relative;
+
+      /* 直接设置颜色或背景无效 */
+      color: #667039; /* 无效 */
+      background-color: chocolate; /* 无效 */
+    }
+    /* 只能通过伪元素来覆盖 */
+    input[type=checkbox]::after{
+      position: absolute;
+      top: 0;
+      background-color: rgb(87, 0, 58);
+      color: rgb(255, 249, 249);
+      height: 24px;
+      width: 24px;
+      line-height: 24px;
+      display: inline-block;
+      visibility: hidden;
+      padding-left: 0px;
+      text-align: center;
+      content: ' ';
+      border-radius: 3px
+    }
+            
+    input[type=checkbox]:checked::after{
+      visibility: visible;
+      content: "✓";
+      font-size: 18px;
+      font-weight: bold;
+    }
+  </style>
 </head>
 <body>
-  
+  <form action="">
+    <p>客户名称: <input type="text" required name="CustomerName" /></p>
+    <p>客户电话: <input type="text" pattern="\d{6-13}"  name="CustomerTel" /></p>
+    <p>邀请码:  <input type="text" pattern="[A-z]{3,6}" placeholder="3-6位英文字母"  name="CustomerCode" /></p>
+    <p>年龄: <input type="number" name="CustomerAge" min="0" max="100" /></p>
+    <p>会员: <input type="checkbox" name="CustomerVIP" /></p>
+    <p><input type="submit" value="提交" /></p>
+  </form>
 </body>
 </html>
