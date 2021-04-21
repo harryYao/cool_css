@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .flexcenter {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      color: #FFF;
+      font-size: 20px;
+      margin-left: 100px;
+      margin-top: 20px;
+      width: 200px;
+      height: 100px;
+    }
+    .diamond {
+      background-color: blueviolet;
+      transform: skewX(-45deg);
+    }
+    .diamond span {
+      transform: skewX(45deg);
+    }
+    .diamond2::before {
+      position: absolute;
+      content: "";
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: -1;
+      background-color: blueviolet;
+      transform: skewX(-45deg);
+    }
+    .diamond3{
+      width: 100px;
+      height: 100px;
+      border: 30px solid transparent;
+      box-sizing: content-box;
+      margin-bottom: 90px;
+    }
+    .diamond3::before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: -1;
+      content: "";
+      background-color: blueviolet;
+      transform: rotate( 45deg);
+    }
+    .diamond4 img {
+      height: 240px;
+      clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
+      transition: 1s clip-path;
+    }
+    /* clip-path 裁剪路径,使用SVG或形状定义一个HTML元素的可见区域的方法 */
+    .diamond4 img:hover {
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+  </style>
+</head>
+<body>
+  <div class="diamond flexcenter"><span>diamond</span></div>
+  <div class="diamond2 flexcenter">diamond</div>
+  <div class="diamond3 flexcenter">diamond</div>
+  <div class="diamond4 flexcenter">
+    <img src="./img/test.png" alt="" srcset="">
+  </div>
+</body>
+</html>
