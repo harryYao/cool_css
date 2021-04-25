@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>手写心跳效果💗</title>
+</head>
+<style>
+  .heart {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+    left: 100px;
+    top: 100px;
+    background-color: rgb(233, 41, 41);
+    transform: rotate(45deg);
+    /* transition: 0.3s transform; */
+    animation: heartbeat 1s infinite;
+    filter: drop-shadow(0px 0px 10px rgb(255,20,20));
+
+  }
+  .heart::before,.heart::after {
+    content: "";
+    width: 60px;
+    height: 60px;
+    position: absolute;
+    border-radius: 50%;
+    background-color: rgb(233, 41, 41);
+  }
+  .heart::before {
+    left: -30px;
+  }
+  .heart::after {
+    top: -30px;
+  }
+  .heart:hover {
+    transform: rotate(45deg) scale(1.2);
+  }
+  @keyframes heartbeat {
+    0% {
+      transform:rotate(45deg) scale(0.8, 0.8);
+      opacity:1;
+    }
+    25% {
+      transform:rotate(45deg) scale(1,1);
+      opacity:0.9;
+    }
+    100% {
+      transform:rotate(45deg) scale(0.8,0.8);
+      opacity:1;
+    }
+  }
+</style>
+<body>
+  <span class="heart"></span>
+</body>
+</html>
